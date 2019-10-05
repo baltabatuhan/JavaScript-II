@@ -4,9 +4,7 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
-
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
-
 
 // ==== Challenge 2: Implement a "counter maker" function ====
 const counterMaker = () => {
@@ -16,8 +14,28 @@ const counterMaker = () => {
   //      NOTE: This `counter` function, being nested inside `counterMaker`,
   //      "closes over" the `count` variable. It can "see" it in the parent scope!
   // 3- Return the `counter` function.
+  let count = 0;
+  return (counter = () => {
+    if (count < 5) {
+      count++;
+      return count;
+    } else {
+      count = 1;
+      return count;
+    }
+  });
 };
 // Example usage: const myCounter = counterMaker();
+const zazaCounter = counterMaker();
+
+console.log(zazaCounter());
+console.log(zazaCounter());
+console.log(zazaCounter());
+console.log(zazaCounter());
+console.log(zazaCounter());
+console.log(zazaCounter());
+console.log(zazaCounter());
+
 // myCounter(); // 1
 // myCounter(); // 2
 
