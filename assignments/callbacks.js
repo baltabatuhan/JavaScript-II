@@ -72,16 +72,14 @@ multiplyNums(5, 6, multiX => {
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-  let b = a[i];
-
-  cb(b);
-}
-contains("Gum", items, checking => {
-  for (let i = 0; i < length.list; i++) {
-    if (item === list[i]) {
-      console.log("true");
-    }
+  if (list.includes(item)) {
+    return cb(true);
+  } else {
+    return cb(false);
   }
+}
+contains("Gum", items, function(result) {
+  console.log(result);
 });
 
 /* STRETCH PROBLEM */
